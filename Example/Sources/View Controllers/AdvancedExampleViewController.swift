@@ -321,6 +321,10 @@ final class AdvancedExampleViewController: ChatViewController {
 // MARK: MessagesDisplayDelegate
 
 extension AdvancedExampleViewController: MessagesDisplayDelegate {
+    func typingIndicatorView() -> UIView? {
+        nil
+    }
+    
   // MARK: - Text Messages
 
   func textColor(for message: MessageType, at _: IndexPath, in _: MessagesCollectionView) -> UIColor {

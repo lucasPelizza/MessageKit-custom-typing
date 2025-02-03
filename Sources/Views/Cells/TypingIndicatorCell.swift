@@ -60,3 +60,38 @@ open class TypingIndicatorCell: MessageCollectionViewCell {
 
   public let typingBubble = TypingBubble()
 }
+
+open class CustomTypingIndicatorCell: MessageCollectionViewCell {
+  // MARK: Lifecycle
+
+  public override init(frame: CGRect) {
+    super.init(frame: frame)
+    setupSubviews()
+  }
+
+  required public init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    setupSubviews()
+  }
+
+  // MARK: Open
+
+  open func setupSubviews() {
+    addSubview(containerView)
+  }
+
+  open override func layoutSubviews() {
+    super.layoutSubviews()
+      containerView.frame = bounds.inset(by: insets)
+  }
+
+  // MARK: Public
+
+  public var insets = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
+
+  public let containerView = UIView()
+
+  public func setup(view: UIView) {
+      containerView.addSubview(view)
+  }
+}

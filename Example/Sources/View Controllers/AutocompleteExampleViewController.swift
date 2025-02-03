@@ -331,6 +331,10 @@ extension AutocompleteExampleViewController: AutocompleteManagerDelegate, Autoco
 // MARK: MessagesDisplayDelegate
 
 extension AutocompleteExampleViewController: MessagesDisplayDelegate {
+    func typingIndicatorView() -> UIView? {
+        nil
+    }
+    
   // MARK: - Text Messages
 
   func textColor(for message: MessageType, at _: IndexPath, in _: MessagesCollectionView) -> UIColor {

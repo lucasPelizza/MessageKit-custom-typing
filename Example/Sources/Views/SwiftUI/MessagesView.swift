@@ -148,6 +148,10 @@ extension MessagesView.Coordinator: InputBarAccessoryViewDelegate {
 // MARK: - MessagesView.Coordinator + MessagesLayoutDelegate, MessagesDisplayDelegate
 
 extension MessagesView.Coordinator: MessagesLayoutDelegate, MessagesDisplayDelegate {
+    func typingIndicatorView() -> UIView? {
+        nil
+    }
+    
   func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at _: IndexPath, in _: MessagesCollectionView) {
     let avatar = SampleData.shared.getAvatarFor(sender: message.sender)
     avatarView.set(avatar: avatar)

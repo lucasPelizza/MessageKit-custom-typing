@@ -260,6 +260,12 @@ extension MessagesDataSource {
     in messagesCollectionView: MessagesCollectionView)
     -> UICollectionViewCell
   {
-    messagesCollectionView.dequeueReusableCell(TypingIndicatorCell.self, for: indexPath)
+      guard let customView = messagesCollectionView.messagesDisplayDelegate?.typingIndicatorView() else {
+          return messagesCollectionView.dequeueReusableCell(TypingIndicatorCell.self, for: indexPath)
+      }
+
+      let customIndicator = messagesCollectionView.dequeueReusableCell(CustomTypingIndicatorCell.self, for: indexPath)
+      customIndicator.setup(view: customView)
+      return customIndicator
   }
 }

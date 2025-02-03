@@ -255,6 +255,11 @@ public protocol MessagesDisplayDelegate: AnyObject {
     for message: MessageType,
     at indexPath: IndexPath,
     in messagesCollectionView: MessagesCollectionView)
+
+    // MARK: - Typing Indicator
+
+    /// Used to configure the Typing Indicator view of a `LinkPreviewMessageCell`.
+    func typingIndicatorView() -> UIView?
 }
 
 extension MessagesDisplayDelegate {
